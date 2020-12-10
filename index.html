@@ -1,0 +1,83 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoftwareFuse Sound — Online platform for creating music.</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="shortcut icon" href="shortcut.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+</head>
+<body>
+    <div class="slider-container">
+        <div class="slide">
+            <div>
+                <img src="drumset.png" alt="logo" />
+                <div>
+                    <h1 class="slide-title">Drums</h1>
+                    <h4 class="slide-subhead">Rock Out With SoftwareFuse Sound's Drumset!</h4>
+                </div>
+            </div>
+        </div>
+        <div class="slide">
+            <div>
+                <img src="kitten.png" alt="logo" />
+                <div>
+                    <h1 class="slide-title">Cat Piano</h1>
+                    <h4 class="slide-subhead">Cat sounds for each key! Test out SoftwareFuse Sound's Cat Piano!</h4>
+                </div>
+            </div>
+        </div>
+        <div class="slide-control">
+            <div class="prev">
+                <i class="fas fa-arrow-left"></i>
+            </div>
+            <div class="next">
+                <i class="fas fa-arrow-right"></i>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const slidesContainer = document.querySelector(".slider-container");
+        const slides = document.querySelectorAll(".slide");
+        const prev = document.querySelector(".prev");
+        const next = document.querySelector(".next");
+        let slideOffset = 0;
+
+        next.addEventListener("click", () => {
+            if (slideOffset == -100) {
+                slideOffset = 0;
+            } else {
+                slideOffset += -100;
+            }
+        });
+        prev.addEventListener("click", () => {
+            if (slideOffset == 0) {
+                slideOffset = -100;
+            } else {
+                slideOffset += 100;
+            }
+        });
+
+        function checkSlideOffset() {
+            slidesContainer.style.marginLeft = slideOffset + "vw";
+            requestAnimationFrame(checkSlideOffset);
+        }
+        
+        checkSlideOffset();
+
+        slides[0].addEventListener("click", () => {
+            for (let i = 0; i < document.querySelectorAll("div").length; i++) {
+                document.querySelectorAll("div")[i].style.opacity = "0";
+                setTimeout(() => document.location.href = "drums.html", 500);
+            }
+        });
+        slides[1].addEventListener("click", () => {
+            for (let i = 0; i < document.querySelectorAll("div").length; i++) {
+                document.querySelectorAll("div")[i].style.opacity = "0";
+                setTimeout(() => document.location.href = "catpiano.html", 500);
+            }
+        });
+    </script>
+</body>
+</html>

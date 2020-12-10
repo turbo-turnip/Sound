@@ -1,0 +1,407 @@
+* 
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    transition: .4s;
+}
+body
+{
+    height: 100vh;
+    background: url(crowd.png), linear-gradient(#333 65%, #666 66%);
+    background-repeat: no-repeat;
+    background-size: 90%, cover;
+    background-position: 50% 92%, center;
+
+}
+.drumset
+{
+    width: 500px;
+    height: 400px;
+    padding: 30px 0px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.center-drum
+{
+    width: 35%;
+    height: 45%;
+    border-radius: 50%;
+    background: #ddd;
+    border-top: 10px solid #444;
+    border-right: 10px solid #444;
+    border-left: 10px solid #444;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+.center-drum > *
+{
+    margin-top: 60px;
+}
+.center-drum::after
+{
+    content: "";
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: radial-gradient(#444, #222);
+    position: absolute;
+    background-size: cover, 50%, 110%;
+    left: 50%;
+    bottom: 40px;
+    transform: translateX(-50%);
+}
+.center-drum::before
+{
+    content: "";
+    width: 10px;
+    background: linear-gradient(90deg, #333, #555);
+    height: 50px;
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    transform: translateX(-50%);
+}
+.two-side-drums
+{
+    width: 80%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 160px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+.two-side-drums > div
+{
+    width: 100px;
+    height: 78px;
+    background: #ddd;
+    border-radius: 50%;
+    border-bottom: 5px solid #444;
+    position: relative;
+    cursor: pointer;
+}
+.two-side-drums > .side-drum-1::after
+{
+    content: "";
+    width: 100%;
+    height: 80px;
+    background: #888;
+    position: absolute;
+    left: 0;
+    bottom: -40px;
+    z-index: -1;
+    border-radius: 0 0 50px 50px;
+    cursor: default;
+}
+.two-side-drums > .side-drum-1::before
+{
+    content: "";
+    width: 10%;
+    height: 100px;
+    background: linear-gradient(90deg, #aaa, #ddd);
+    position: absolute;
+    left: 50%;
+    bottom: -140px;
+    transform: translateX(-50%);
+    z-index: -1;
+    cursor: default
+}
+.two-side-drums > .side-drum-2::after
+{
+    content: "";
+    width: 100%;
+    height: 150px;
+    background: #888;
+    position: absolute;
+    left: 0;
+    bottom: -120px;
+    z-index: -10;
+    border-radius: 0 0 50px 50px;
+    cursor: default;
+}
+.two-top-drums
+{
+    width: 42%;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 70px;
+}
+.two-top-drums > div
+{
+    width: 100px;
+    height: 90px;
+    background: #ddd;
+    border-radius: 50%;
+    border-bottom: 5px solid #444;
+    position: relative;
+    cursor: pointer;
+}
+.two-top-drums > div::after
+{
+    content: "";
+    width: 100%;
+    height: 60px;
+    background: #777;
+    position: absolute;
+    left: 0;
+    bottom: -30px;
+    z-index: -1;
+    border-radius: 0 0 50px 50px;
+    cursor: default;
+}
+.two-top-drums::before 
+{
+    content: "";
+    width: 10px;
+    height: 80px;
+    background: #ddd;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 60px;
+    z-index: -2;
+    clip-path: polygon(
+        0 0,
+        50% 20%,
+        100% 0,
+        100% 100%,
+        0 100%,
+        0 0
+    );
+    cursor: default;
+}
+.two-cymbal
+{
+    width: 96%;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 100px;
+    height: 0px;
+}
+.two-cymbal > div
+{
+    width: 100px;
+    height: 50px;
+    background: rgb(207, 175, 30);
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+}
+.two-cymbal > div::after
+{
+    content: "";
+    width: 10px;
+    height: 200px;
+    position: absolute;
+    background: linear-gradient(90deg, #aaa, #ddd);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -2;
+    cursor: default;
+
+}
+.two-cymbal > div::before
+{
+    content: "";
+    width: 7px;
+    height: 5px;
+    background: #444;
+    position: absolute;
+    left: 50%;
+    top: 25%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    cursor: default;
+}
+.hi-hat 
+{
+    width: 100px;
+    height: 50px;
+    background: rgb(207, 175, 30);
+    border-radius: 50%;
+    position: absolute;
+    left: 70px;
+    top: 20px;
+    cursor: pointer;
+}
+.hi-hat::before
+{
+    content: "";
+    width: 7px;
+    height: 5px;
+    background: #444;
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    cursor: default;
+}
+.hi-hat::after
+{
+    content: "";
+    width: 10px;
+    height: 200px;
+    position: absolute;
+    background: linear-gradient(90deg, #aaa, #ddd);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -2;
+    cursor: default;
+}
+
+.pounded::after
+{
+    transform: translate(-50%, 70%) scale(.9);
+    transform-origin: center center;
+}
+.pounded::before 
+{
+    height: 30px;
+}
+.key
+{
+    padding: 1.4em;
+    margin: 1em;
+    background: #fff;
+    width: max-content;
+    border-radius: 15px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.key .collapse
+{
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    box-shadow: 0 0 12px 3px #00000026;
+    cursor: pointer;
+}
+.key .collapse::after
+{
+    content: "Collapse";
+    width: max-content;
+    padding: 6px 8px;
+    background: #ccc;
+    border-radius: 10px;
+    color: #555;
+    position: absolute;
+    right: -100px;
+    transform: scale(0);
+    transform-origin: left center;
+    transition: .2s;
+}
+.key .collapse::before
+{
+    content: "";
+    width: 1px;
+    height: 1px;
+    border: 5px solid transparent;
+    border-right: 8px solid #ccc;
+    position: absolute;
+    right: -22px;
+    transform-origin: right center;
+    transform: scale(0);
+    transition: .2s;
+}
+.key .collapse:hover::after,
+.key .collapse:hover::before
+{
+    transform: scale(1);
+}
+.key .collapse:hover
+{
+    transform: translateX(5px);
+}
+.collapsed-key
+{
+    transform: translateX(-90%);
+    color: #fff;
+}
+.collapsed-key > .collapse
+{
+    color: #000;
+    transform: rotate(180deg);
+}
+.collapsed-key > .collapse::after 
+{
+    content: "Expand";
+}
+.collapsed-key > .collapse::before
+{
+    right: -30px;
+}
+.key-display
+{
+    width: max-content;
+    height: max-content;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 1em;
+    transition: .4s;
+}
+.key-display > img
+{
+    transition: 2s;
+}
+.key-display .close
+{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    box-shadow: 0 0 12px 3px #00000026;
+    cursor: pointer;
+}
+
+
+
+.hidden
+{
+    margin-right: -18em;
+}
+.hidden > .close > i
+{
+    transform: rotate(45deg);
+}
+.hidden > img
+{
+    transform: scaleX(0);
+}

@@ -1,0 +1,237 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoftwareFuse Sound — Online platform for creating music.</title>
+    <link rel="stylesheet" href="drums.css">
+    <link rel="shortcut icon" href="shortcut.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+</head>
+<body>
+    <div class="key">
+        <div class="collapse">
+            <i class="fas fa-arrow-left"></i>
+        </div>
+        <div>
+            <h4>Kick Drum &nbsp; &nbsp; &nbsp; = k</h4>
+        </div>
+        <div>
+            <h4>Floor Tom &nbsp; &nbsp; &nbsp;&nbsp; = ;</h4>
+        </div>
+        <div>
+            <h4>Snare Drum &nbsp; &nbsp; = j</h4>
+        </div>
+        <div>
+            <h4>Tom-Tom 1 &nbsp; &nbsp;&nbsp; = i</h4>
+        </div>
+        <div>
+            <h4>Tom-Tom 2 &nbsp; &nbsp;&nbsp; = o</h4>
+        </div>
+        <div>
+            <h4>Ride Cymbal &nbsp; = p</h4>
+        </div>
+        <div>
+            <h4>Crash Cymbal = u</h4>
+        </div>
+        <div>
+            <h4>Hi-Hat &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; = h</h4>
+        </div>
+    </div>
+    <div class="drumset">
+        <div class="center-drum">
+            <i>SoftwareFuse</i>
+        </div>
+        <div class="two-side-drums">
+            <div class="side-drum-1"></div>
+            <div class="side-drum-2"></div>
+        </div>
+        <div class="two-top-drums">
+            <div class="drum-top-1"></div>
+            <div class="drum-top-2"></div>
+        </div>
+        <div class="two-cymbal">
+            <div class="cymbal"></div>
+            <div class="cymbal"></div>
+        </div>
+        <div class="hi-hat"></div>
+    </div>
+
+    <div class="key-display">
+        <img src="keys.png" alt="keys" />
+        <div class="close">
+            <i class="fas fa-times"></i>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector(".center-drum").addEventListener("mousedown", () => {
+            let audio = new Audio();
+            audio.src = "sounds/kick_drum.mp3";
+            audio.play();
+            
+            document.querySelector(".center-drum").classList.add("pounded");
+        });
+        document.querySelector(".center-drum").addEventListener("mouseup", () => {
+            document.querySelector(".center-drum").classList.remove("pounded");
+        });
+        document.querySelector(".side-drum-2").addEventListener("mousedown", () => {
+            let audio = new Audio();
+            audio.src = "sounds/floortom.mp3";
+            audio.play();
+        });
+        document.querySelectorAll(".cymbal")[0].addEventListener("mousedown", () => {
+            let audio = new Audio();
+            audio.src = "sounds/crashcymbal.mp3";
+            audio.play();
+        });
+        document.querySelectorAll(".cymbal")[1].addEventListener("mousedown", () => {
+            let audio = new Audio();
+            audio.src = "sounds/ridecymbal.mp3";
+            audio.play();
+        });
+        document.querySelector(".hi-hat").addEventListener("mousedown", () => {
+            let audio = new Audio();
+            audio.src = "sounds/hihat.mp3";
+            audio.play();
+        });
+        document.querySelector(".side-drum-1").addEventListener("mousedown", () => {
+            let audio = new Audio();
+            audio.src = "sounds/snare.mp3";
+            audio.play();
+        });
+        document.querySelector(".drum-top-1").addEventListener("mousedown", () => {
+            let audio = new Audio();
+            audio.src = "sounds/tom1.mp3";
+            audio.play();
+        });
+        document.querySelector(".drum-top-2").addEventListener("mousedown", () => {
+            let audio = new Audio();
+            audio.src = "sounds/tom2.mp3";
+            audio.play();
+        });
+
+        let kickDrum = false,
+            floorTom = false,
+            snareDrum = false,
+            tomTom1 = false,
+            tomTom2 = false,
+            rideCymbal = false,
+            crashCymbal = false,
+            hihat = false;
+
+
+        function keyDown(e) {
+            switch (e.keyCode) {
+                case 75:
+                    kickDrum = true;
+                    let audio2 = new Audio();
+                    audio2.src = "sounds/kick_drum.mp3";
+                    audio2.play();
+
+                    document.querySelector(".center-drum").classList.add("pounded");
+                    break;
+                case 59:
+                    floorTom = true;
+                    let audio3 = new Audio();
+                    audio3.src = "sounds/floortom.mp3";
+                    audio3.play();
+                    break;
+                case 74:
+                    snareDrum = true;
+                    let audio4 = new Audio();
+                    audio4.src = "sounds/snare.mp3";
+                    audio4.play();
+                    break;
+                case 73:
+                    tomTom1 = true;
+                    let audio5 = new Audio();
+                    audio5.src = "sounds/tom1.mp3";
+                    audio5.play();
+                    break;
+                case 79:
+                    tomTom2 = true;
+                    let audio6 = new Audio();
+                    audio6.src = "sounds/tom2.mp3";
+                    audio6.play();
+                    break;
+                case 80:
+                    rideCymbal = true;
+                    let audio7 = new Audio();
+                    audio7.src = "sounds/ridecymbal.mp3";
+                    audio7.play();
+                    break;
+                case 72:
+                    hihat = true;
+                    let audio8 = new Audio();
+                    audio8.src = "sounds/crashcymbal.mp3";
+                    audio8.play();
+                    break;
+                case 85:
+                    crashCymbal = true;
+                    let audio9 = new Audio();
+                    audio9.src = "sounds/hihat.mp3";
+                    audio9.play();
+                    break;
+                default: 
+                    break;
+            }
+        }
+
+        function keyUp(e) {
+            switch (e.keyCode) {
+                case 75:
+                    kickDrum = false;
+                    document.querySelector(".center-drum").classList.remove("pounded");
+                    break;
+                case 59:
+                    floorTom = false;
+                    break;
+                case 74:
+                    snareDrum = false;
+                    break;
+                case 73:
+                    tomTom1 = false;
+                    break;
+                case 79:
+                    tomTom2 = false;
+                    break;
+                case 80:
+                    rideCymbal = false;
+                    break;
+                case 72:
+                    hihat = false;
+                    break;
+                case 85:
+                    crashCymbal = false;
+                    break;
+                default: 
+                    break;
+            }
+        }
+
+
+
+        const collapseBtn = document.querySelector(".collapse");
+        const key = document.querySelector(".key");
+
+        collapseBtn.addEventListener("click", () => {
+            key.classList.toggle("collapsed-key");
+        });
+
+
+
+
+        window.addEventListener("keydown", keyDown, false);
+        window.addEventListener("keyup", keyUp, false);
+
+
+
+        const close = document.querySelector(".close");
+        const keyDisplay = document.querySelector(".key-display");
+
+        close.addEventListener("click", () => {
+            keyDisplay.classList.toggle("hidden");
+        });
+    </script>
+</body>
+</html>

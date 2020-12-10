@@ -1,0 +1,73 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoftwareFuse Sound — Online platform for creating music.</title>
+    <link rel="stylesheet" href="catpiano.css">
+    <link rel="shortcut icon" href="shortcut.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+</head>
+<body>
+    <div class="autoplay">
+        Autoplay: <input type="checkbox" class="toggle" />
+        <audio src="https://www.youtube.com/embed/oiSQ4tjYUPA" autoplay></audio>
+    </div>
+
+    <div class="piano">
+        <div class="keygroup">
+            <div class="key key1"></div>
+            <div class="key key2-black"></div>
+            <div class="key key3"></div>
+            <div class="key key4-black"></div>
+            <div class="key key5"></div>
+            <div class="key key6-black"></div>
+            <div class="key key7"></div>
+        </div>
+        <div class="middlekey"></div>
+        <div class="keygroup">
+            <div class="key key1"></div>
+            <div class="key key2-black"></div>
+            <div class="key key3"></div>
+            <div class="key key4-black"></div>
+            <div class="key key5"></div>
+            <div class="key key6-black"></div>
+            <div class="key key7"></div>
+        </div>
+    </div>
+
+    <script>
+        const keys = document.querySelectorAll(".key");
+
+        for (let i = 0; i < keys.length; i++)
+        {
+            let audio = new Audio();
+            
+            keys[i].addEventListener("click", () => {
+                audio.src = "sounds/meow" + (i + 1) + ".mp3";
+                audio.play();
+            });
+        }
+
+        const middleKey = document.querySelector(".middlekey");
+        let meowSpeech = new SpeechSynthesisUtterance();
+
+        middleKey.addEventListener("click", () => {
+            meowSpeech.text = "meow";
+            speechSynthesis.speak(meowSpeech);
+        });
+        let tetris = new Audio();
+        tetris.src = "tetris.mp3";
+        let count = 0;
+        document.querySelector(".toggle").addEventListener("click", () => {
+            if (count % 2 == 0)
+            {
+                tetris.play();
+            } else 
+            {
+                tetris.pause();
+            }
+            count++;
+        });
+    </script>
+</body>
+</html>
